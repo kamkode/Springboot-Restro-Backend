@@ -2,6 +2,7 @@ package com.zosh.controller;
 
 import java.util.List;
 
+import com.zosh.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,8 @@ import com.zosh.service.UserService;
 public class OrderController {
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private PaymentService paymentService;
 	@Autowired
 	private UserService userService;
 	

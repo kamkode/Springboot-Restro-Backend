@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Service
 public class PaymentServiceImplementation implements PaymentService{
-	
-	
+
+	//changes done by me
 	@Value("${stripe.api.key}")
 	 private String stripeSecretKey;
 
@@ -39,21 +39,21 @@ public class PaymentServiceImplementation implements PaymentService{
 	                                .setCurrency("usd")
 	                                .setUnitAmount((long) order.getTotalAmount()*100) // Specify the order amount in cents
 	                                .setProductData(SessionCreateParams.LineItem.PriceData.ProductData.builder()
-	                                        .setName("pizza burger")
+	                                        .setName("zosh food")
 	                                        .build())
 	                                .build())
 	                        .build())
 	                .build();
-	        
+
 	        Session session = Session.create(params);
-	        
+
 	        System.out.println("session _____ " + session);
-	        
+
 	        PaymentResponse res = new PaymentResponse();
 	        res.setPayment_url(session.getUrl());
-	        
+
 	        return res;
-	    
+
 	}
 
 }
